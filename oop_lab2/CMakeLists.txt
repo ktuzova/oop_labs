@@ -1,18 +1,14 @@
-cmake_minimum_required(VERSION 3.0)
-project(lab02)
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
-set(CMAKE_CXX_STANDART 17)
-set(CMAKE_CXX_STANDART_REQUIRED ON) 
+cmake_minimum_required(VERSION 3.22.1)
+project(oop_lab2)
 
-add_executable(lab2 main.cpp five.cpp)
-#target_include_directories(lab C:/googletest/googletest/include)
-
-include_directories(C:/googletest/googletest/include)
-
-
+set(CMAKE_CXX_STANDARD 17)
 enable_testing()
-add_executable(tests test.cpp  main.cpp)
-target_link_libraries(tests ${GTEST_LIBRARIES})
 
-add_test(NAME BASIC COMMAND tests)
+add_subdirectory(googletest)
+include_directories(include)
+
+add_executable(oop_lab2 main.cpp src/Seven.cpp)
+add_executable(oop_lab2_test tests/test.cpp src/Seven.cpp)
+
+target_link_libraries(oop_lab2_test gtest_main)
+add_test(NAME BASIC COMMAND oop_lab2_test)

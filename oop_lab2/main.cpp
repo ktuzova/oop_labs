@@ -1,19 +1,18 @@
-
-#include "five.hpp"
 #include <iostream>
+#include "include/Seven.hpp"
 
-int main(){
-    try {
-        Five a = {'0', '0', '1'};
-        std::cout << a << std::endl;
-        Five b = {'4', '0', '2'};
-        std::cout << (a + b) << std::endl;
-        std::cout << (a == b) << std::endl;
-        std::cout << (a != b) << std::endl;
-        std::cout << (a > b) << std::endl;
-        std::cout << (a - b) << std::endl;
-    } catch(const std::exception& e) {
-        std::cerr << e.what() << '\n';
-    }
+int main() {
+    Seven x("1006");
+    x += Seven("146");
+    std::cout << x << std::endl;
+    x -= Seven("66");
+    std::cout << x << std::endl;
+    std::cout << x - Seven("66") << std::endl;
+    std::cout << (x > Seven("34")) << std::endl;
+    std::cout << (x > Seven("242152345")) << std::endl;
+    std::cout << (x < Seven("0")) << std::endl;
+    std::cout << (x != Seven("666")) << std::endl;
+    std::cout << (x == Seven("1056")) << std::endl;
+
     return 0;
 }
